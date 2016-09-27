@@ -1,0 +1,522 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2D317BB91D9AD0BE001BB318 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D317BB81D9AD0BE001BB318 /* AppDelegate.swift */; };
+		2D317BBB1D9AD0BE001BB318 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D317BBA1D9AD0BE001BB318 /* ViewController.swift */; };
+		2D317BBE1D9AD0BE001BB318 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D317BBC1D9AD0BE001BB318 /* Main.storyboard */; };
+		2D317BC11D9AD0BE001BB318 /* VogueStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2D317BBF1D9AD0BE001BB318 /* VogueStore.xcdatamodeld */; };
+		2D317BC31D9AD0BE001BB318 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D317BC21D9AD0BE001BB318 /* Assets.xcassets */; };
+		2D317BC61D9AD0BE001BB318 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D317BC41D9AD0BE001BB318 /* LaunchScreen.storyboard */; };
+		2D317BD11D9AD0BE001BB318 /* VogueStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D317BD01D9AD0BE001BB318 /* VogueStoreTests.swift */; };
+		2D317BDC1D9AD0BF001BB318 /* VogueStoreUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D317BDB1D9AD0BF001BB318 /* VogueStoreUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2D317BCD1D9AD0BE001BB318 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2D317BAD1D9AD0BE001BB318 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2D317BB41D9AD0BE001BB318;
+			remoteInfo = VogueStore;
+		};
+		2D317BD81D9AD0BF001BB318 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2D317BAD1D9AD0BE001BB318 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2D317BB41D9AD0BE001BB318;
+			remoteInfo = VogueStore;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2D317BB51D9AD0BE001BB318 /* VogueStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VogueStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D317BB81D9AD0BE001BB318 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2D317BBA1D9AD0BE001BB318 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2D317BBD1D9AD0BE001BB318 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2D317BC01D9AD0BE001BB318 /* VogueStore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VogueStore.xcdatamodel; sourceTree = "<group>"; };
+		2D317BC21D9AD0BE001BB318 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2D317BC51D9AD0BE001BB318 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2D317BC71D9AD0BE001BB318 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2D317BCC1D9AD0BE001BB318 /* VogueStoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VogueStoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D317BD01D9AD0BE001BB318 /* VogueStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VogueStoreTests.swift; sourceTree = "<group>"; };
+		2D317BD21D9AD0BF001BB318 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2D317BD71D9AD0BF001BB318 /* VogueStoreUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VogueStoreUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D317BDB1D9AD0BF001BB318 /* VogueStoreUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VogueStoreUITests.swift; sourceTree = "<group>"; };
+		2D317BDD1D9AD0BF001BB318 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2D317BB21D9AD0BE001BB318 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2D317BC91D9AD0BE001BB318 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2D317BD41D9AD0BF001BB318 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2D317BAC1D9AD0BE001BB318 = {
+			isa = PBXGroup;
+			children = (
+				2D317BB71D9AD0BE001BB318 /* VogueStore */,
+				2D317BCF1D9AD0BE001BB318 /* VogueStoreTests */,
+				2D317BDA1D9AD0BF001BB318 /* VogueStoreUITests */,
+				2D317BB61D9AD0BE001BB318 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2D317BB61D9AD0BE001BB318 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2D317BB51D9AD0BE001BB318 /* VogueStore.app */,
+				2D317BCC1D9AD0BE001BB318 /* VogueStoreTests.xctest */,
+				2D317BD71D9AD0BF001BB318 /* VogueStoreUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2D317BB71D9AD0BE001BB318 /* VogueStore */ = {
+			isa = PBXGroup;
+			children = (
+				2D317BB81D9AD0BE001BB318 /* AppDelegate.swift */,
+				2D317BBA1D9AD0BE001BB318 /* ViewController.swift */,
+				2D317BBC1D9AD0BE001BB318 /* Main.storyboard */,
+				2D317BC21D9AD0BE001BB318 /* Assets.xcassets */,
+				2D317BC41D9AD0BE001BB318 /* LaunchScreen.storyboard */,
+				2D317BC71D9AD0BE001BB318 /* Info.plist */,
+				2D317BBF1D9AD0BE001BB318 /* VogueStore.xcdatamodeld */,
+			);
+			path = VogueStore;
+			sourceTree = "<group>";
+		};
+		2D317BCF1D9AD0BE001BB318 /* VogueStoreTests */ = {
+			isa = PBXGroup;
+			children = (
+				2D317BD01D9AD0BE001BB318 /* VogueStoreTests.swift */,
+				2D317BD21D9AD0BF001BB318 /* Info.plist */,
+			);
+			path = VogueStoreTests;
+			sourceTree = "<group>";
+		};
+		2D317BDA1D9AD0BF001BB318 /* VogueStoreUITests */ = {
+			isa = PBXGroup;
+			children = (
+				2D317BDB1D9AD0BF001BB318 /* VogueStoreUITests.swift */,
+				2D317BDD1D9AD0BF001BB318 /* Info.plist */,
+			);
+			path = VogueStoreUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2D317BB41D9AD0BE001BB318 /* VogueStore */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2D317BE01D9AD0BF001BB318 /* Build configuration list for PBXNativeTarget "VogueStore" */;
+			buildPhases = (
+				2D317BB11D9AD0BE001BB318 /* Sources */,
+				2D317BB21D9AD0BE001BB318 /* Frameworks */,
+				2D317BB31D9AD0BE001BB318 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VogueStore;
+			productName = VogueStore;
+			productReference = 2D317BB51D9AD0BE001BB318 /* VogueStore.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2D317BCB1D9AD0BE001BB318 /* VogueStoreTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2D317BE31D9AD0BF001BB318 /* Build configuration list for PBXNativeTarget "VogueStoreTests" */;
+			buildPhases = (
+				2D317BC81D9AD0BE001BB318 /* Sources */,
+				2D317BC91D9AD0BE001BB318 /* Frameworks */,
+				2D317BCA1D9AD0BE001BB318 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2D317BCE1D9AD0BE001BB318 /* PBXTargetDependency */,
+			);
+			name = VogueStoreTests;
+			productName = VogueStoreTests;
+			productReference = 2D317BCC1D9AD0BE001BB318 /* VogueStoreTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		2D317BD61D9AD0BF001BB318 /* VogueStoreUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2D317BE61D9AD0BF001BB318 /* Build configuration list for PBXNativeTarget "VogueStoreUITests" */;
+			buildPhases = (
+				2D317BD31D9AD0BF001BB318 /* Sources */,
+				2D317BD41D9AD0BF001BB318 /* Frameworks */,
+				2D317BD51D9AD0BF001BB318 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2D317BD91D9AD0BF001BB318 /* PBXTargetDependency */,
+			);
+			name = VogueStoreUITests;
+			productName = VogueStoreUITests;
+			productReference = 2D317BD71D9AD0BF001BB318 /* VogueStoreUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2D317BAD1D9AD0BE001BB318 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Portia Sharma";
+				TargetAttributes = {
+					2D317BB41D9AD0BE001BB318 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					2D317BCB1D9AD0BE001BB318 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 2D317BB41D9AD0BE001BB318;
+					};
+					2D317BD61D9AD0BF001BB318 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 2D317BB41D9AD0BE001BB318;
+					};
+				};
+			};
+			buildConfigurationList = 2D317BB01D9AD0BE001BB318 /* Build configuration list for PBXProject "VogueStore" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2D317BAC1D9AD0BE001BB318;
+			productRefGroup = 2D317BB61D9AD0BE001BB318 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2D317BB41D9AD0BE001BB318 /* VogueStore */,
+				2D317BCB1D9AD0BE001BB318 /* VogueStoreTests */,
+				2D317BD61D9AD0BF001BB318 /* VogueStoreUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2D317BB31D9AD0BE001BB318 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D317BC61D9AD0BE001BB318 /* LaunchScreen.storyboard in Resources */,
+				2D317BC31D9AD0BE001BB318 /* Assets.xcassets in Resources */,
+				2D317BBE1D9AD0BE001BB318 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2D317BCA1D9AD0BE001BB318 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2D317BD51D9AD0BF001BB318 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2D317BB11D9AD0BE001BB318 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D317BC11D9AD0BE001BB318 /* VogueStore.xcdatamodeld in Sources */,
+				2D317BBB1D9AD0BE001BB318 /* ViewController.swift in Sources */,
+				2D317BB91D9AD0BE001BB318 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2D317BC81D9AD0BE001BB318 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D317BD11D9AD0BE001BB318 /* VogueStoreTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2D317BD31D9AD0BF001BB318 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D317BDC1D9AD0BF001BB318 /* VogueStoreUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2D317BCE1D9AD0BE001BB318 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2D317BB41D9AD0BE001BB318 /* VogueStore */;
+			targetProxy = 2D317BCD1D9AD0BE001BB318 /* PBXContainerItemProxy */;
+		};
+		2D317BD91D9AD0BF001BB318 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2D317BB41D9AD0BE001BB318 /* VogueStore */;
+			targetProxy = 2D317BD81D9AD0BF001BB318 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2D317BBC1D9AD0BE001BB318 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2D317BBD1D9AD0BE001BB318 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		2D317BC41D9AD0BE001BB318 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2D317BC51D9AD0BE001BB318 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2D317BDE1D9AD0BF001BB318 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2D317BDF1D9AD0BF001BB318 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2D317BE11D9AD0BF001BB318 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = VogueStore/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ipaycheck.VogueStore;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		2D317BE21D9AD0BF001BB318 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = VogueStore/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ipaycheck.VogueStore;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		2D317BE41D9AD0BF001BB318 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = VogueStoreTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ipaycheck.VogueStoreTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VogueStore.app/VogueStore";
+			};
+			name = Debug;
+		};
+		2D317BE51D9AD0BF001BB318 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = VogueStoreTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ipaycheck.VogueStoreTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VogueStore.app/VogueStore";
+			};
+			name = Release;
+		};
+		2D317BE71D9AD0BF001BB318 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = VogueStoreUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ipaycheck.VogueStoreUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = VogueStore;
+			};
+			name = Debug;
+		};
+		2D317BE81D9AD0BF001BB318 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = VogueStoreUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ipaycheck.VogueStoreUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = VogueStore;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D317BB01D9AD0BE001BB318 /* Build configuration list for PBXProject "VogueStore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D317BDE1D9AD0BF001BB318 /* Debug */,
+				2D317BDF1D9AD0BF001BB318 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D317BE01D9AD0BF001BB318 /* Build configuration list for PBXNativeTarget "VogueStore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D317BE11D9AD0BF001BB318 /* Debug */,
+				2D317BE21D9AD0BF001BB318 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		2D317BE31D9AD0BF001BB318 /* Build configuration list for PBXNativeTarget "VogueStoreTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D317BE41D9AD0BF001BB318 /* Debug */,
+				2D317BE51D9AD0BF001BB318 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		2D317BE61D9AD0BF001BB318 /* Build configuration list for PBXNativeTarget "VogueStoreUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D317BE71D9AD0BF001BB318 /* Debug */,
+				2D317BE81D9AD0BF001BB318 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		2D317BBF1D9AD0BE001BB318 /* VogueStore.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2D317BC01D9AD0BE001BB318 /* VogueStore.xcdatamodel */,
+			);
+			currentVersion = 2D317BC01D9AD0BE001BB318 /* VogueStore.xcdatamodel */;
+			path = VogueStore.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 2D317BAD1D9AD0BE001BB318 /* Project object */;
+}
