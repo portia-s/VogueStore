@@ -9,13 +9,17 @@
 import UIKit
 import LocalAuthentication
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
 
     var overlayView = UIView()
+    var pageViewController = UIPageViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        self.pageViewController = UIPageViewController(transitionStyle: UIPageViewControllerTransitionStyle.Scroll, navigationOrientation: UIPageViewControllerNavigationOrientation.Horizontal, options: nil)
+        self.pageViewController.delegate = self
+        self.pageViewController.dataSource = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -23,17 +27,18 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    //create overlay and go for touchID
     @IBAction func loginButtonPressed(sender: UIButton) {
+        _ = performSegueWithIdentifier("touchedToStore", sender: nil)
+/*
         
-        //create overlay
         overlayView = createOverlay()
         self.view.addSubview(overlayView)
-        if touchIdIsAvailable() {
+        if isTouchIdAvailable() {
             loginWithTouchId()
         }
-        
+*/
     }
-
     
     func createOverlay() -> UIView {
         
@@ -55,19 +60,19 @@ class ViewController: UIViewController {
         return myView
     }
     
-    func touchIdIsAvailable() -> Bool {
+    func isTouchIdAvailable() -> Bool {
         
         let myContext = LAContext()
         var myError: NSError?
         
-        let isTouchIDAvailable = myContext.canEvaluatePolicy(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, error: &myError)
+        let foundTouchID = myContext.canEvaluatePolicy(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, error: &myError)
         
         //        if isTouchIDAvailable == false {
 //            let myAlertController = UIAlertController(title: "Touch ID", message: "Not Available", preferredStyle: UIAlertControllerStyle.Alert)
 //            myAlertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
 //            presentViewController(myAlertController, animated: true, completion: nil)
         //        }
-        return isTouchIDAvailable
+        return foundTouchID
         
     }
     
@@ -80,6 +85,7 @@ class ViewController: UIViewController {
         context.evaluatePolicy(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { (valid: Bool, error) in
             if valid {
                 //segue to next screen
+                _ = self.performSegueWithIdentifier("touchedToStore", sender: nil)
             }
             else {
                 //go back to login screenaka startover

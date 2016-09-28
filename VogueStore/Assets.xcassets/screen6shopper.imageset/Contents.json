@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "screen6shopper.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "MenuBarButton.pdf",
       "scale" : "2x"
     },
     {

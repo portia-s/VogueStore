@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "screen5events.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "MenuBarButton.pdf",
       "scale" : "2x"
     },
     {
