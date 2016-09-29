@@ -18,6 +18,21 @@
 		2D317BEC1D9B3559001BB318 /* StoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D317BEB1D9B3559001BB318 /* StoreViewController.swift */; };
 		2D317BED1D9B3559001BB318 /* StoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D317BEB1D9B3559001BB318 /* StoreViewController.swift */; };
 		2D317BEE1D9B3559001BB318 /* StoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D317BEB1D9B3559001BB318 /* StoreViewController.swift */; };
+		2D47E2E71D9C51A70041F6AA /* StoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D47E2E61D9C51A70041F6AA /* StoreModel.swift */; };
+		2D47E2E81D9C51A70041F6AA /* StoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D47E2E61D9C51A70041F6AA /* StoreModel.swift */; };
+		2D47E2E91D9C51A70041F6AA /* StoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D47E2E61D9C51A70041F6AA /* StoreModel.swift */; };
+		2D47E2EB1D9CCB8B0041F6AA /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D47E2EA1D9CCB8B0041F6AA /* ShopViewController.swift */; };
+		2D47E2EC1D9CCB8B0041F6AA /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D47E2EA1D9CCB8B0041F6AA /* ShopViewController.swift */; };
+		2D47E2ED1D9CCB8B0041F6AA /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D47E2EA1D9CCB8B0041F6AA /* ShopViewController.swift */; };
+		2D47E2EF1D9CCF6B0041F6AA /* ProductView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D47E2EE1D9CCF6B0041F6AA /* ProductView.xib */; };
+		2D47E2F01D9CCF6B0041F6AA /* ProductView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D47E2EE1D9CCF6B0041F6AA /* ProductView.xib */; };
+		2D47E2F11D9CCF6B0041F6AA /* ProductView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D47E2EE1D9CCF6B0041F6AA /* ProductView.xib */; };
+		2D47E2F31D9CD79A0041F6AA /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D47E2F21D9CD79A0041F6AA /* ProductCollectionViewCell.swift */; };
+		2D47E2F41D9CD79A0041F6AA /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D47E2F21D9CD79A0041F6AA /* ProductCollectionViewCell.swift */; };
+		2D47E2F51D9CD79A0041F6AA /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D47E2F21D9CD79A0041F6AA /* ProductCollectionViewCell.swift */; };
+		2D47E2F71D9CDBAA0041F6AA /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D47E2F61D9CDBAA0041F6AA /* ProductModel.swift */; };
+		2D47E2F81D9CDBAA0041F6AA /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D47E2F61D9CDBAA0041F6AA /* ProductModel.swift */; };
+		2D47E2F91D9CDBAA0041F6AA /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D47E2F61D9CDBAA0041F6AA /* ProductModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +68,11 @@
 		2D317BDB1D9AD0BF001BB318 /* VogueStoreUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VogueStoreUITests.swift; sourceTree = "<group>"; };
 		2D317BDD1D9AD0BF001BB318 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2D317BEB1D9B3559001BB318 /* StoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StoreViewController.swift; path = ../StoreViewController.swift; sourceTree = "<group>"; };
+		2D47E2E61D9C51A70041F6AA /* StoreModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreModel.swift; sourceTree = "<group>"; };
+		2D47E2EA1D9CCB8B0041F6AA /* ShopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
+		2D47E2EE1D9CCF6B0041F6AA /* ProductView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductView.xib; sourceTree = "<group>"; };
+		2D47E2F21D9CD79A0041F6AA /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
+		2D47E2F61D9CDBAA0041F6AA /* ProductModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,7 +125,12 @@
 			children = (
 				2D317BB81D9AD0BE001BB318 /* AppDelegate.swift */,
 				2D317BBA1D9AD0BE001BB318 /* ViewController.swift */,
+				2D47E2E61D9C51A70041F6AA /* StoreModel.swift */,
+				2D47E2F61D9CDBAA0041F6AA /* ProductModel.swift */,
 				2D317BEB1D9B3559001BB318 /* StoreViewController.swift */,
+				2D47E2EA1D9CCB8B0041F6AA /* ShopViewController.swift */,
+				2D47E2EE1D9CCF6B0041F6AA /* ProductView.xib */,
+				2D47E2F21D9CD79A0041F6AA /* ProductCollectionViewCell.swift */,
 				2D317BBC1D9AD0BE001BB318 /* Main.storyboard */,
 				2D317BC21D9AD0BE001BB318 /* Assets.xcassets */,
 				2D317BC41D9AD0BE001BB318 /* LaunchScreen.storyboard */,
@@ -237,6 +262,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D47E2EF1D9CCF6B0041F6AA /* ProductView.xib in Resources */,
 				2D317BC61D9AD0BE001BB318 /* LaunchScreen.storyboard in Resources */,
 				2D317BC31D9AD0BE001BB318 /* Assets.xcassets in Resources */,
 				2D317BBE1D9AD0BE001BB318 /* Main.storyboard in Resources */,
@@ -247,6 +273,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D47E2F01D9CCF6B0041F6AA /* ProductView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,6 +281,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D47E2F11D9CCF6B0041F6AA /* ProductView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,8 +294,12 @@
 			files = (
 				2D317BEC1D9B3559001BB318 /* StoreViewController.swift in Sources */,
 				2D317BC11D9AD0BE001BB318 /* VogueStore.xcdatamodeld in Sources */,
+				2D47E2F31D9CD79A0041F6AA /* ProductCollectionViewCell.swift in Sources */,
+				2D47E2EB1D9CCB8B0041F6AA /* ShopViewController.swift in Sources */,
 				2D317BBB1D9AD0BE001BB318 /* ViewController.swift in Sources */,
 				2D317BB91D9AD0BE001BB318 /* AppDelegate.swift in Sources */,
+				2D47E2E71D9C51A70041F6AA /* StoreModel.swift in Sources */,
+				2D47E2F71D9CDBAA0041F6AA /* ProductModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,8 +307,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D47E2EC1D9CCB8B0041F6AA /* ShopViewController.swift in Sources */,
+				2D47E2F81D9CDBAA0041F6AA /* ProductModel.swift in Sources */,
 				2D317BED1D9B3559001BB318 /* StoreViewController.swift in Sources */,
+				2D47E2F41D9CD79A0041F6AA /* ProductCollectionViewCell.swift in Sources */,
 				2D317BD11D9AD0BE001BB318 /* VogueStoreTests.swift in Sources */,
+				2D47E2E81D9C51A70041F6AA /* StoreModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,8 +320,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D47E2ED1D9CCB8B0041F6AA /* ShopViewController.swift in Sources */,
+				2D47E2F91D9CDBAA0041F6AA /* ProductModel.swift in Sources */,
 				2D317BEE1D9B3559001BB318 /* StoreViewController.swift in Sources */,
+				2D47E2F51D9CD79A0041F6AA /* ProductCollectionViewCell.swift in Sources */,
 				2D317BDC1D9AD0BF001BB318 /* VogueStoreUITests.swift in Sources */,
+				2D47E2E91D9C51A70041F6AA /* StoreModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -498,6 +538,7 @@
 				2D317BE21D9AD0BF001BB318 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2D317BE31D9AD0BF001BB318 /* Build configuration list for PBXNativeTarget "VogueStoreTests" */ = {
 			isa = XCConfigurationList;
@@ -506,6 +547,7 @@
 				2D317BE51D9AD0BF001BB318 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2D317BE61D9AD0BF001BB318 /* Build configuration list for PBXNativeTarget "VogueStoreUITests" */ = {
 			isa = XCConfigurationList;
@@ -514,6 +556,7 @@
 				2D317BE81D9AD0BF001BB318 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

@@ -9,17 +9,13 @@
 import UIKit
 import LocalAuthentication
 
-class ViewController: UIViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
+class ViewController: UIViewController {
 
     var overlayView = UIView()
-    var pageViewController = UIPageViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.pageViewController = UIPageViewController(transitionStyle: UIPageViewControllerTransitionStyle.Scroll, navigationOrientation: UIPageViewControllerNavigationOrientation.Horizontal, options: nil)
-        self.pageViewController.delegate = self
-        self.pageViewController.dataSource = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -92,6 +88,5 @@ class ViewController: UIViewController, UIPageViewControllerDelegate, UIPageView
             }
         }
     }
-    
     
 }
