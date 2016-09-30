@@ -9,6 +9,7 @@
 import UIKit
 
 class ProductCollectionViewCell: UICollectionViewCell {
+    
     @IBOutlet weak var productNameLabel: UILabel!
     @IBOutlet weak var productPriceLabel: UILabel!
     @IBOutlet weak var productImageView: UIImageView!
@@ -22,4 +23,5 @@ class ProductCollectionViewCell: UICollectionViewCell {
 
     @IBAction func addToCartButtonPressed(sender: UIButton) {
     }
+    
 }

@@ -15,6 +15,9 @@ class ShopViewController: UIViewController, UICollectionViewDataSource, UICollec
 
     @IBOutlet weak var productCollectionView: UICollectionView!
     
+    //ShopVC as collectionView datasource & delegate
+    //collectionViewCell from ProductView.xib
+    //navBar textAttributes
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,19 +28,19 @@ class ShopViewController: UIViewController, UICollectionViewDataSource, UICollec
         self.productCollectionView.registerNib(UINib(nibName: "ProductView", bundle: nil), forCellWithReuseIdentifier: "productReuseCell")
         self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 20)!, NSForegroundColorAttributeName: UIColor.darkGrayColor()]
         
+        navigationItem.leftBarButtonItem?.image = UIImage(named: "backArrow")
+        navigationItem.rightBarButtonItem?.image = UIImage(named: "Cart")
+
 
         
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
+    //addToCart
     @IBAction func addFeaturedItemButtonPressed(sender: UIButton) {
         incrementCartCounter()
     }
     
+    //clear cart
     @IBAction func backButtonPressed(sender: UIBarButtonItem) {
         if cartItemCount > 1 {
             self.navigationController?.navigationBar.viewWithTag(cartItemCount)?.removeFromSuperview()
@@ -46,7 +49,7 @@ class ShopViewController: UIViewController, UICollectionViewDataSource, UICollec
         self.navigationController?.popViewControllerAnimated(true)
     }
     
-
+    //MARK : - CollectionView datasource
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
@@ -57,6 +60,7 @@ class ShopViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("productReuseCell", forIndexPath: indexPath) as! ProductCollectionViewCell
         cell.productNameLabel.text = shopProductData.getProductData()[indexPath.row].name
         cell.productPriceLabel.text = shopProductData.getProductData()[indexPath.row].price
@@ -67,6 +71,7 @@ class ShopViewController: UIViewController, UICollectionViewDataSource, UICollec
         return cell
     }
     
+    //collectionViewCell Layout
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
         return UIEdgeInsetsZero
     }
@@ -80,15 +85,21 @@ class ShopViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        
         let flowLayout = collectionViewLayout as! UICollectionViewFlowLayout
         let totalSpace = flowLayout.sectionInset.left + flowLayout.sectionInset.right + flowLayout.minimumInteritemSpacing
         let size = (collectionView.bounds.width - totalSpace)/2
-        print("total space = ", totalSpace, size, 1.16 * size)
+        print("total space = ", totalSpace, size, 1.16 * size, collectionView.bounds.width)
         
+        if collectionView.bounds.width < 340 {
+            return CGSize(width: size, height: 1.5 * size)
+        }
         return CGSize(width: size, height: 1.16 * size)
     }
     
+    //Cart Counter & Badge
     func incrementCartCounter() {
+        
         cartItemCount = cartItemCount + 1
         let navbar = navigationController?.navigationBar
         let navframe = CGRect(x: navbar!.frame.width - 30, y: 0, width: navbar!.frame.width/2, height: navbar!.frame.height)
@@ -108,4 +119,15 @@ class ShopViewController: UIViewController, UICollectionViewDataSource, UICollec
         }
     }
     
+    //resize collectionviewCell for different screen sizes
+    func calcCollectionViewCellSize() -> (x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat) {
+        //let screenHeight = UIScreen.mainScreen().bounds.height
+        let screenWidth = UIScreen.mainScreen().bounds.width
+        let x = CGFloat(25)
+        let y = CGFloat(-50)
+        let width = screenWidth - 50
+        let height = screenWidth * (325 / 325)
+        return (x,y,width,height)
+    }
+
 }

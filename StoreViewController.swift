@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StoreViewController: UIViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
+class StoreViewController: UIViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate, NSURLSessionDelegate {
 
     var pageViewController = UIPageViewController()
     var images = ["screen3shoes","screen4heels","screen5events","screen6shopper"]
@@ -19,6 +19,7 @@ class StoreViewController: UIViewController, UIPageViewControllerDataSource, UIP
     @IBOutlet weak var shopperButton: UIButton!
     @IBOutlet weak var offersButton: UIButton!
     @IBOutlet weak var loyaltyButton: UIButton!
+    @IBOutlet weak var loyaltyPointsLabel: UILabel!
     @IBOutlet weak var pageImageView: UIImageView!
     @IBOutlet weak var pagecontrol1: UIImageView!
     @IBOutlet weak var pagecontrol2: UIImageView!
@@ -26,52 +27,32 @@ class StoreViewController: UIViewController, UIPageViewControllerDataSource, UIP
     @IBOutlet weak var pagecontrol4: UIImageView!
     @IBOutlet weak var pageControl: UIPageControl!
     
+    //set navTitle, pageView, PVController, get loyaltyPoints
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        navigationItem.titleView = UIImageView(image: UIImage(named: "NavTitle"))
+        navigationItem.leftBarButtonItem?.image = UIImage(named: "MenuBarButton")
+        navigationItem.rightBarButtonItem?.image = UIImage(named: "UserBarButton")
         
         self.pageViewController = UIPageViewController(transitionStyle: UIPageViewControllerTransitionStyle.Scroll, navigationOrientation: UIPageViewControllerNavigationOrientation.Horizontal, options: nil)
         self.pageViewController.delegate = self
         self.pageViewController.dataSource = self
-        let screenHeight = UIScreen.mainScreen().bounds.height - 280 - 30
-        let screenWidth = UIScreen.mainScreen().bounds.width
-        let viewWidth = screenHeight * (325/2444)
-        //        vc.view.frame = CGRect(x: (screenWidth - viewWidth)/2, y: 0, width: screenHeight * (325/244) , height: screenHeight
-            pageViewController.view.frame = CGRect(x: (screenWidth - viewWidth)/2, y: 20, width: viewWidth, height: screenHeight)//screenWidth * (244/325))//pageImageView.bounds
+        let pageFrame = calcPageViewSize()
+        pageViewController.view.frame = CGRect(x: pageFrame.x , y: pageFrame.y, width: pageFrame.width , height: pageFrame.height)//screenWidth * (244/325))//pageImageView.bounds
         self.addChildViewController(pageViewController)
-        
         pageViewController.setViewControllers([vcAtIndex(0)], direction: UIPageViewControllerNavigationDirection.Forward, animated: true, completion: nil)
         selectedPageControl(0)
         self.view.addSubview(pageViewController.view)
-
+        
+        getLoyaltyPoints()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
     
     @IBAction func storeButtonPressed(sender: UIButton) {
-        //performSegueWithIdentifier("", sender: nil)
     }
     
-//    func pageViewController(pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
-//        print(previousViewControllers[0].restorationIdentifier)
-//        selectedPageControl(Int(previousViewControllers[0].restorationIdentifier!)!)
-//    }
+
+    //MARK : - PageViewController
     
     func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
         if let index = Int(viewController.restorationIdentifier!) {
@@ -108,20 +89,19 @@ class StoreViewController: UIViewController, UIPageViewControllerDataSource, UIP
     
     func vcAtIndex(index: Int) -> UIViewController {
         let vc = UIViewController()
-        let screenHeight = UIScreen.mainScreen().bounds.height - 560 - 30
-        let screenWidth = UIScreen.mainScreen().bounds.width
-        let viewWidth = screenHeight * (325/2444)
-        vc.view.frame = CGRect(x: (screenWidth - viewWidth)/2, y: 0, width: screenHeight * (325/244) , height: screenHeight)//screenWidth * (244/325))
+        let pageFrame = calcPageViewSize()
+        vc.view.frame = CGRect(x: pageFrame.x , y: pageFrame.y, width: pageFrame.width , height: pageFrame.height)
         let vcImageView = UIImageView()
         vcImageView.image = UIImage(named:images[index])
         vcImageView.frame = vc.view.bounds
         print(vc.view.bounds)
-        vcImageView.contentMode = UIViewContentMode.ScaleToFill
+        vcImageView.contentMode = UIViewContentMode.ScaleAspectFit
         vc.view.addSubview(vcImageView)
         vc.restorationIdentifier = String(index)
         return vc
     }
     
+    //pagecontrol selection
     func selectedPageControl(index: Int) {
         switch index {
         case 0 :
@@ -148,15 +128,68 @@ class StoreViewController: UIViewController, UIPageViewControllerDataSource, UIP
             break
         }
     }
+    
+    //get loyalty points w/ given API
+    func getLoyaltyPoints() {
+
+        //configure session
+        let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
+        configuration.timeoutIntervalForRequest = 15.0
+        let session = NSURLSession(configuration: configuration, delegate: self, delegateQueue: nil) //NSURLSession(configuration: configuration, delegate: self, delegateQueue: nil)
         
-//    //pageControl
-//    
-//    func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
-//        return images.count
-//    }
-//    
-//    func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
-//        return 0
-//    }
+        //call API
+        let url = NSURL(string: "http://54.191.35.66:8181/pfchang/api/buy?username=Michael&grandTotal=0")
+        let request = NSMutableURLRequest(URL: url!)
+        request.HTTPMethod = "POST"
+        
+        //get Data from server
+        let task =  session.dataTaskWithRequest(request) { (data, response, error) in
+            if error != nil {
+                print("error: \(error!.localizedDescription)")
+            }
+            else if data != nil {
+                //Parse JSON dictionary
+                let rewardPts = self.jsonParsing(data!)
+                    dispatch_async(dispatch_get_main_queue(), {
+                        self.loyaltyPointsLabel.text = rewardPts
+                    })
+            }
+        }
+        task.resume()
+    }
+    
+    //parse loyalty points data
+    func jsonParsing(data: NSData) -> String {
+        var resultString = ""
+        do {
+            let jsonDictionary = try NSJSONSerialization.JSONObjectWithData(data, options: .MutableContainers)
+            print(jsonDictionary)
+            let results = jsonDictionary as! NSDictionary
+            let resultValue = results["rewardPoints"]
+            resultString = "\(resultValue!)"
+        }
+        catch {
+            print("SendDeviceProfileCatchError: )")
+        }
+        return resultString
+    }
+    
+    //resize pageview for different screen sizes
+    func calcPageViewSize() -> (x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat) {
+        //let screenHeight = UIScreen.mainScreen().bounds.height
+        let screenWidth = UIScreen.mainScreen().bounds.width
+        let x = CGFloat(25)
+        let y = CGFloat(-50)
+        let width = screenWidth - 50
+        var height: CGFloat
+        if screenWidth < 340 {
+            height = screenWidth * (300 / 325)
+        } else {
+            height = screenWidth * (325 / 325)
+        }
+        return (x,y,width,height)
+    }
+    
     
 }
+

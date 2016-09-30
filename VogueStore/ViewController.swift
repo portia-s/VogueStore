@@ -18,30 +18,24 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     //create overlay and go for touchID
     @IBAction func loginButtonPressed(sender: UIButton) {
-        _ = performSegueWithIdentifier("touchedToStore", sender: nil)
-/*
+        //         _ = performSegueWithIdentifier("touchedToStore", sender: nil)
         
         overlayView = createOverlay()
+        overlayView.tag = 001
         self.view.addSubview(overlayView)
         if isTouchIdAvailable() {
             loginWithTouchId()
         }
-*/
     }
     
+    //prompt overlay
     func createOverlay() -> UIView {
         
         //create transparencyView for the screen
         let myView = UIView()
         myView.frame = self.view.bounds
-        myView.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.8)
         
         //calculate coordinates for prompt imageView
         let myX = Int((self.view.bounds.width - 262)/2)
@@ -51,11 +45,13 @@ class ViewController: UIViewController {
         let myPrompt = UIImageView()
         myPrompt.frame = CGRect(x: myX, y: myY, width: 262, height: 313)
         myPrompt.image = UIImage(named: "screen2TouchIdPrompt")
+        //myPrompt.tag = 001
         myView.addSubview(myPrompt)
         
         return myView
     }
     
+    //check if touchId is supported
     func isTouchIdAvailable() -> Bool {
         
         let myContext = LAContext()
@@ -63,15 +59,16 @@ class ViewController: UIViewController {
         
         let foundTouchID = myContext.canEvaluatePolicy(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, error: &myError)
         
-        //        if isTouchIDAvailable == false {
-//            let myAlertController = UIAlertController(title: "Touch ID", message: "Not Available", preferredStyle: UIAlertControllerStyle.Alert)
-//            myAlertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-//            presentViewController(myAlertController, animated: true, completion: nil)
-        //        }
+        if foundTouchID == false {
+            let myAlertController = UIAlertController(title: "Touch ID", message: "Not Available", preferredStyle: UIAlertControllerStyle.Alert)
+            myAlertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            presentViewController(myAlertController, animated: true, completion: nil)
+        }
         return foundTouchID
         
     }
     
+    //login with touchId or restart
     func loginWithTouchId() {
         
         let context  = LAContext()
@@ -84,7 +81,11 @@ class ViewController: UIViewController {
                 _ = self.performSegueWithIdentifier("touchedToStore", sender: nil)
             }
             else {
-                //go back to login screenaka startover
+                //go back to login screen aka startover
+                dispatch_async(dispatch_get_main_queue(), { 
+                     self.view.viewWithTag(001)?.removeFromSuperview()
+                })
+               
             }
         }
     }

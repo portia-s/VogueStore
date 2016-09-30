@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -154,12 +155,12 @@
                         </variation>
                     </view>
                     <connections>
-                        <segue destination="41K-5f-Cjr" kind="show" identifier="touchedToStore" id="OpH-vy-mAD"/>
+                        <segue destination="41K-5f-Cjr" kind="presentation" identifier="touchedToStore" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="OpH-vy-mAD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="869" y="1062"/>
+            <point key="canvasLocation" x="759" y="1045.5"/>
         </scene>
         <!--Store View Controller-->
         <scene sceneID="Dsn-l7-1j3">
@@ -170,7 +171,7 @@
                         <viewControllerLayoutGuide type="bottom" id="dFv-OT-mZf"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="0WO-Ej-U6v">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GKH-ht-MDi">
@@ -1016,12 +1017,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="2Qh-lQ-loU">
                         <nil key="title"/>
-                        <barButtonItem key="leftBarButtonItem" image="MenuBarButton" id="bfL-hF-ja0"/>
-                        <barButtonItem key="rightBarButtonItem" image="UserBarButton" id="Yrc-7j-aKC"/>
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="bfL-hF-ja0"/>
+                        <barButtonItem key="rightBarButtonItem" id="Yrc-7j-aKC"/>
                     </navigationItem>
                     <connections>
                         <outlet property="eventButton" destination="pts-I8-bXG" id="DGt-vB-uao"/>
                         <outlet property="loyaltyButton" destination="pBU-JT-XJm" id="cq7-2q-M0l"/>
+                        <outlet property="loyaltyPointsLabel" destination="7Ab-Gb-iPz" id="hU2-zN-QEN"/>
                         <outlet property="offersButton" destination="YAh-AS-AEe" id="yod-eV-tvz"/>
                         <outlet property="pagecontrol1" destination="fOf-nC-JEG" id="rvr-P1-Q7j"/>
                         <outlet property="pagecontrol2" destination="0I9-ri-tjH" id="Yat-Yj-upJ"/>
@@ -1033,7 +1035,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1cE-pF-Jla" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1669" y="1062"/>
+            <point key="canvasLocation" x="1521" y="1062"/>
         </scene>
         <!--Shop-->
         <scene sceneID="MOI-2B-Sgf">
@@ -1044,7 +1046,7 @@
                         <viewControllerLayoutGuide type="bottom" id="gx2-ro-mk3"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="mkb-KA-FAE">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Featured Item: Magician Hat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oxn-W3-cY9">
@@ -1062,8 +1064,7 @@
                                         <exclude reference="TgW-on-pW5"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular" misplaced="YES">
-                                    <rect key="frame" x="30" y="79" width="183" height="23"/>
+                                <variation key="heightClass=regular">
                                     <mask key="constraints">
                                         <include reference="TgW-on-pW5"/>
                                     </mask>
@@ -1084,8 +1085,7 @@
                                         <exclude reference="lAm-9z-LLd"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular" misplaced="YES">
-                                    <rect key="frame" x="524" y="79" width="46" height="23"/>
+                                <variation key="heightClass=regular">
                                     <mask key="constraints">
                                         <include reference="lAm-9z-LLd"/>
                                     </mask>
@@ -1107,8 +1107,7 @@
                                         <exclude reference="ERc-eD-m4u"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular" misplaced="YES">
-                                    <rect key="frame" x="255" y="122" width="90" height="86"/>
+                                <variation key="heightClass=regular">
                                     <mask key="constraints">
                                         <include reference="0Pg-UD-qbE"/>
                                         <include reference="ERc-eD-m4u"/>
@@ -1144,8 +1143,7 @@
                                         <exclude reference="cLX-Hl-V2w"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular" misplaced="YES">
-                                    <rect key="frame" x="35" y="223" width="530" height="30"/>
+                                <variation key="heightClass=regular">
                                     <mask key="constraints">
                                         <include reference="cLX-Hl-V2w"/>
                                     </mask>
@@ -1170,8 +1168,7 @@
                                         <exclude reference="ymi-ai-76p"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular" misplaced="YES">
-                                    <rect key="frame" x="227" y="104" width="67" height="65"/>
+                                <variation key="heightClass=regular">
                                     <mask key="constraints">
                                         <include reference="8tf-dp-L1B"/>
                                         <include reference="ymi-ai-76p"/>
@@ -1197,7 +1194,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="165" height="200"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
@@ -1209,8 +1206,7 @@
                                         <exclude reference="qj7-94-gyE"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular" misplaced="YES">
-                                    <rect key="frame" x="20" y="273" width="560" height="483"/>
+                                <variation key="heightClass=regular">
                                     <mask key="constraints">
                                         <exclude reference="qj7-94-gyE"/>
                                     </mask>
@@ -1319,12 +1315,12 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Shop" id="Sgq-Dv-rcv">
-                        <barButtonItem key="leftBarButtonItem" image="backArrow" style="plain" id="xXf-7J-gLW">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="xXf-7J-gLW">
                             <connections>
                                 <action selector="backButtonPressed:" destination="jpy-bE-bg8" id="rAM-cI-E2H"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="Cart" id="lrR-4B-OM1"/>
+                        <barButtonItem key="rightBarButtonItem" id="lrR-4B-OM1"/>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -1333,7 +1329,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TVj-jK-MLy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2391" y="900.75"/>
+            <point key="canvasLocation" x="2283" y="1062"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Uhu-nu-Oub">
@@ -1343,6 +1339,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="jzA-Bz-3D1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.25490196079999999" green="0.36470588240000001" blue="0.66666666669999997" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -1351,20 +1348,17 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Hu-d4-4Rs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1669" y="325.5"/>
+            <point key="canvasLocation" x="1521" y="334.5"/>
         </scene>
     </scenes>
     <resources>
         <image name="Cart" width="55" height="55"/>
         <image name="Events" width="42" height="42"/>
         <image name="Loyalty" width="43" height="43"/>
-        <image name="MenuBarButton" width="61" height="43"/>
         <image name="Offers" width="55" height="55"/>
         <image name="PageSelected" width="17" height="17"/>
         <image name="PageUnselected" width="18" height="18"/>
         <image name="Shopper" width="43" height="43"/>
-        <image name="UserBarButton" width="60" height="60"/>
-        <image name="backArrow" width="35" height="60"/>
         <image name="hat" width="185" height="171"/>
         <image name="saleTag" width="135" height="131"/>
         <image name="screen1Back" width="750" height="1334"/>
