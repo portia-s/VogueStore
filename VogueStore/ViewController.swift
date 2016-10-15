@@ -19,15 +19,15 @@ class ViewController: UIViewController {
     }
 
     //create overlay and go for touchID
-    @IBAction func loginButtonPressed(sender: UIButton) {
-        //         _ = performSegueWithIdentifier("touchedToStore", sender: nil)
-        
+    @IBAction func loginButtonPressed(_ sender: UIButton) {
+        _ = performSegue(withIdentifier: "touchedToStore", sender: nil)
+        /*
         overlayView = createOverlay()
         overlayView.tag = 001
         self.view.addSubview(overlayView)
         if isTouchIdAvailable() {
             loginWithTouchId()
-        }
+        }*/
     }
     
     //prompt overlay
@@ -57,12 +57,12 @@ class ViewController: UIViewController {
         let myContext = LAContext()
         var myError: NSError?
         
-        let foundTouchID = myContext.canEvaluatePolicy(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, error: &myError)
+        let foundTouchID = myContext.canEvaluatePolicy(LAPolicy.deviceOwnerAuthenticationWithBiometrics, error: &myError)
         
         if foundTouchID == false {
-            let myAlertController = UIAlertController(title: "Touch ID", message: "Not Available", preferredStyle: UIAlertControllerStyle.Alert)
-            myAlertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-            presentViewController(myAlertController, animated: true, completion: nil)
+            let myAlertController = UIAlertController(title: "Touch ID", message: "Not Available", preferredStyle: UIAlertControllerStyle.alert)
+            myAlertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            present(myAlertController, animated: true, completion: nil)
         }
         return foundTouchID
         
@@ -72,17 +72,16 @@ class ViewController: UIViewController {
     func loginWithTouchId() {
         
         let context  = LAContext()
-        var error: NSError?
         let reason = "Authenticate with TouchID"
         
-        context.evaluatePolicy(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { (valid: Bool, error) in
+        context.evaluatePolicy(LAPolicy.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { (valid: Bool, error) in
             if valid {
                 //segue to next screen
-                _ = self.performSegueWithIdentifier("touchedToStore", sender: nil)
+                _ = self.performSegue(withIdentifier: "touchedToStore", sender: nil)
             }
             else {
                 //go back to login screen aka startover
-                dispatch_async(dispatch_get_main_queue(), { 
+                DispatchQueue.main.async(execute: { 
                      self.view.viewWithTag(001)?.removeFromSuperview()
                 })
                

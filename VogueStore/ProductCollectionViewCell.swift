@@ -18,10 +18,10 @@ class ProductCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.bringSubviewToFront(addToCartButton)
+        self.bringSubview(toFront: addToCartButton)
     }
 
-    @IBAction func addToCartButtonPressed(sender: UIButton) {
+    @IBAction func addToCartButtonPressed(_ sender: UIButton) {
     }
     
 }

@@ -25,66 +25,65 @@ class ShopViewController: UIViewController, UICollectionViewDataSource, UICollec
         productCollectionView.delegate = self
         productCollectionView.dataSource = self
         
-        self.productCollectionView.registerNib(UINib(nibName: "ProductView", bundle: nil), forCellWithReuseIdentifier: "productReuseCell")
-        self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 20)!, NSForegroundColorAttributeName: UIColor.darkGrayColor()]
+        self.productCollectionView.register(UINib(nibName: "ProductView", bundle: nil), forCellWithReuseIdentifier: "productReuseCell")
+        self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 20)!, NSForegroundColorAttributeName: UIColor.darkGray]
         
         navigationItem.leftBarButtonItem?.image = UIImage(named: "backArrow")
         navigationItem.rightBarButtonItem?.image = UIImage(named: "Cart")
-
-
         
     }
     
     //addToCart
-    @IBAction func addFeaturedItemButtonPressed(sender: UIButton) {
+    @IBAction func addFeaturedItemButtonPressed(_ sender: UIButton) {
         incrementCartCounter()
     }
     
     //clear cart
-    @IBAction func backButtonPressed(sender: UIBarButtonItem) {
-        if cartItemCount > 1 {
+    @IBAction func backButtonPressed(_ sender: UIBarButtonItem) {
+        if cartItemCount >= 1 {
             self.navigationController?.navigationBar.viewWithTag(cartItemCount)?.removeFromSuperview()
+            cartItemCount = 0
         }
-        cartItemCount = 0
-        self.navigationController?.popViewControllerAnimated(true)
+        
+        _ = self.navigationController?.popViewController(animated: true)
     }
     
     //MARK : - CollectionView datasource
     
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 4
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("productReuseCell", forIndexPath: indexPath) as! ProductCollectionViewCell
-        cell.productNameLabel.text = shopProductData.getProductData()[indexPath.row].name
-        cell.productPriceLabel.text = shopProductData.getProductData()[indexPath.row].price
-        cell.productImageView.image = shopProductData.getProductData()[indexPath.row].image
-        cell.addToCartButton.tag = indexPath.row
-        cell.addToCartButton.addTarget(self, action: "incrementCartCounter", forControlEvents: UIControlEvents.TouchUpInside)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "productReuseCell", for: indexPath) as! ProductCollectionViewCell
+        cell.productNameLabel.text = shopProductData.getProductData()[(indexPath as NSIndexPath).row].name
+        cell.productPriceLabel.text = shopProductData.getProductData()[(indexPath as NSIndexPath).row].price
+        cell.productImageView.image = shopProductData.getProductData()[(indexPath as NSIndexPath).row].image
+        cell.addToCartButton.tag = (indexPath as NSIndexPath).row
+        cell.addToCartButton.addTarget(self, action: #selector(ShopViewController.incrementCartCounter), for: UIControlEvents.touchUpInside)
         
         return cell
     }
     
     //collectionViewCell Layout
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
-        return UIEdgeInsetsZero
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets.zero
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0.0
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0.0
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         let flowLayout = collectionViewLayout as! UICollectionViewFlowLayout
         let totalSpace = flowLayout.sectionInset.left + flowLayout.sectionInset.right + flowLayout.minimumInteritemSpacing
@@ -107,11 +106,11 @@ class ShopViewController: UIViewController, UICollectionViewDataSource, UICollec
         navLabel.font = UIFont(name: "HelveticaNeue-Medium", size: 12.0)
         navLabel.text = "  \(cartItemCount)  "
         navLabel.sizeToFit()
-        navLabel.textColor = UIColor.whiteColor()
-        navLabel.backgroundColor = UIColor.redColor()
+        navLabel.textColor = UIColor.white
+        navLabel.backgroundColor = UIColor.red
         navLabel.layer.cornerRadius = navLabel.frame.height/2
         navLabel.layer.masksToBounds = true
-        navLabel.layer.borderColor = UIColor.darkGrayColor().CGColor
+        navLabel.layer.borderColor = UIColor.darkGray.cgColor
         navLabel.tag = cartItemCount
         navbar?.addSubview(navLabel)
         if cartItemCount > 1 {
@@ -122,7 +121,7 @@ class ShopViewController: UIViewController, UICollectionViewDataSource, UICollec
     //resize collectionviewCell for different screen sizes
     func calcCollectionViewCellSize() -> (x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat) {
         //let screenHeight = UIScreen.mainScreen().bounds.height
-        let screenWidth = UIScreen.mainScreen().bounds.width
+        let screenWidth = UIScreen.main.bounds.width
         let x = CGFloat(25)
         let y = CGFloat(-50)
         let width = screenWidth - 50

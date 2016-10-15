@@ -5,15 +5,26 @@
 //  Created by Portia Sharma on 9/27/16.
 //  Copyright © 2016 Portia Sharma. All rights reserved.
 //
-
+import Foundation
 import UIKit
 
-class StoreViewController: UIViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate, NSURLSessionDelegate {
+
+
+class StoreViewController: UIViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate, StoreViewModelDelegate {
 
     var pageViewController = UIPageViewController()
     var images = ["screen3shoes","screen4heels","screen5events","screen6shopper"]
-    var currentPageIndex = 0
     
+    var currentPage: Int = 0 {
+        didSet {
+            DispatchQueue.main.async { 
+                self.selectedPageControl(self.currentPage)
+            }
+        }
+    }
+    
+    var myStoreViewModel = StoreViewModel()
+
     @IBOutlet weak var storeButton: UIButton!
     @IBOutlet weak var eventButton: UIButton!
     @IBOutlet weak var shopperButton: UIButton!
@@ -30,64 +41,61 @@ class StoreViewController: UIViewController, UIPageViewControllerDataSource, UIP
     //set navTitle, pageView, PVController, get loyaltyPoints
     override func viewDidLoad() {
         super.viewDidLoad()
+        myStoreViewModel.delegate = self
 
         navigationItem.titleView = UIImageView(image: UIImage(named: "NavTitle"))
         navigationItem.leftBarButtonItem?.image = UIImage(named: "MenuBarButton")
         navigationItem.rightBarButtonItem?.image = UIImage(named: "UserBarButton")
         
-        self.pageViewController = UIPageViewController(transitionStyle: UIPageViewControllerTransitionStyle.Scroll, navigationOrientation: UIPageViewControllerNavigationOrientation.Horizontal, options: nil)
+        self.pageViewController = UIPageViewController(transitionStyle: UIPageViewControllerTransitionStyle.scroll, navigationOrientation: UIPageViewControllerNavigationOrientation.horizontal, options: nil)
         self.pageViewController.delegate = self
         self.pageViewController.dataSource = self
         let pageFrame = calcPageViewSize()
         pageViewController.view.frame = CGRect(x: pageFrame.x , y: pageFrame.y, width: pageFrame.width , height: pageFrame.height)//screenWidth * (244/325))//pageImageView.bounds
         self.addChildViewController(pageViewController)
-        pageViewController.setViewControllers([vcAtIndex(0)], direction: UIPageViewControllerNavigationDirection.Forward, animated: true, completion: nil)
+        pageViewController.setViewControllers([vcAtIndex(0)], direction: UIPageViewControllerNavigationDirection.forward, animated: true, completion: nil)
         selectedPageControl(0)
         self.view.addSubview(pageViewController.view)
         
-        getLoyaltyPoints()
+        myStoreViewModel.getLoyaltyPoints()
     }
     
-    @IBAction func storeButtonPressed(sender: UIButton) {
+    @IBAction func storeButtonPressed(_ sender: UIButton) {
     }
     
-
+    func updateLoyaltyPoints(rewardPts: String) {
+        self.loyaltyPointsLabel.text = rewardPts
+    }
+    
+    
     //MARK : - PageViewController
     
-    func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         if let index = Int(viewController.restorationIdentifier!) {
-            print("Index Before ",index)
+            currentPage = index
             if index > 0 {
-                currentPageIndex = index - 1
-                selectedPageControl(index -  1)
                 return vcAtIndex(index - 1)
             } else {
-                currentPageIndex = images.count - 1
-                selectedPageControl(images.count - 1)
                 return vcAtIndex(images.count - 1)
             }
         }
         return nil
     }
     
-    func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         if let index = Int(viewController.restorationIdentifier!) {
-            print("Index After ",index)
+            currentPage = index
             if index < images.count - 1 {
-                currentPageIndex = index + 1
-                selectedPageControl(index +  1)
                 return vcAtIndex(index + 1)
             }
             else {
-                currentPageIndex = 0
-                selectedPageControl(0)
                 return vcAtIndex(0)
             }
         }
         return nil
     }
     
-    func vcAtIndex(index: Int) -> UIViewController {
+    func vcAtIndex(_ index: Int) -> UIViewController {
         let vc = UIViewController()
         let pageFrame = calcPageViewSize()
         vc.view.frame = CGRect(x: pageFrame.x , y: pageFrame.y, width: pageFrame.width , height: pageFrame.height)
@@ -95,14 +103,14 @@ class StoreViewController: UIViewController, UIPageViewControllerDataSource, UIP
         vcImageView.image = UIImage(named:images[index])
         vcImageView.frame = vc.view.bounds
         print(vc.view.bounds)
-        vcImageView.contentMode = UIViewContentMode.ScaleAspectFit
+        vcImageView.contentMode = UIViewContentMode.scaleAspectFit
         vc.view.addSubview(vcImageView)
         vc.restorationIdentifier = String(index)
         return vc
     }
     
     //pagecontrol selection
-    func selectedPageControl(index: Int) {
+    func selectedPageControl(_ index: Int) {
         switch index {
         case 0 :
             self.pagecontrol1.image = UIImage(named:"PageSelected")
@@ -129,55 +137,10 @@ class StoreViewController: UIViewController, UIPageViewControllerDataSource, UIP
         }
     }
     
-    //get loyalty points w/ given API
-    func getLoyaltyPoints() {
-
-        //configure session
-        let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
-        configuration.timeoutIntervalForRequest = 15.0
-        let session = NSURLSession(configuration: configuration, delegate: self, delegateQueue: nil) //NSURLSession(configuration: configuration, delegate: self, delegateQueue: nil)
-        
-        //call API
-        let url = NSURL(string: "http://54.191.35.66:8181/pfchang/api/buy?username=Michael&grandTotal=0")
-        let request = NSMutableURLRequest(URL: url!)
-        request.HTTPMethod = "POST"
-        
-        //get Data from server
-        let task =  session.dataTaskWithRequest(request) { (data, response, error) in
-            if error != nil {
-                print("error: \(error!.localizedDescription)")
-            }
-            else if data != nil {
-                //Parse JSON dictionary
-                let rewardPts = self.jsonParsing(data!)
-                    dispatch_async(dispatch_get_main_queue(), {
-                        self.loyaltyPointsLabel.text = rewardPts
-                    })
-            }
-        }
-        task.resume()
-    }
-    
-    //parse loyalty points data
-    func jsonParsing(data: NSData) -> String {
-        var resultString = ""
-        do {
-            let jsonDictionary = try NSJSONSerialization.JSONObjectWithData(data, options: .MutableContainers)
-            print(jsonDictionary)
-            let results = jsonDictionary as! NSDictionary
-            let resultValue = results["rewardPoints"]
-            resultString = "\(resultValue!)"
-        }
-        catch {
-            print("SendDeviceProfileCatchError: )")
-        }
-        return resultString
-    }
-    
     //resize pageview for different screen sizes
     func calcPageViewSize() -> (x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat) {
         //let screenHeight = UIScreen.mainScreen().bounds.height
-        let screenWidth = UIScreen.mainScreen().bounds.width
+        let screenWidth = UIScreen.main.bounds.width
         let x = CGFloat(25)
         let y = CGFloat(-50)
         let width = screenWidth - 50

@@ -30,6 +30,9 @@
 		2D47E2F71D9CDBAA0041F6AA /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D47E2F61D9CDBAA0041F6AA /* ProductModel.swift */; };
 		2D47E2F81D9CDBAA0041F6AA /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D47E2F61D9CDBAA0041F6AA /* ProductModel.swift */; };
 		2D47E2F91D9CDBAA0041F6AA /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D47E2F61D9CDBAA0041F6AA /* ProductModel.swift */; };
+		2D5D98091DA4364B000350AE /* StoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5D98081DA4364B000350AE /* StoreViewModel.swift */; };
+		2D5D984A1DA6DF94000350AE /* StoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5D98081DA4364B000350AE /* StoreViewModel.swift */; };
+		2D5D984B1DA6DF94000350AE /* StoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5D98081DA4364B000350AE /* StoreViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +72,7 @@
 		2D47E2EE1D9CCF6B0041F6AA /* ProductView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductView.xib; sourceTree = "<group>"; };
 		2D47E2F21D9CD79A0041F6AA /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
 		2D47E2F61D9CDBAA0041F6AA /* ProductModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
+		2D5D98081DA4364B000350AE /* StoreViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,8 +125,9 @@
 			children = (
 				2D317BB81D9AD0BE001BB318 /* AppDelegate.swift */,
 				2D317BBA1D9AD0BE001BB318 /* ViewController.swift */,
-				2D47E2F61D9CDBAA0041F6AA /* ProductModel.swift */,
+				2D5D98081DA4364B000350AE /* StoreViewModel.swift */,
 				2D317BEB1D9B3559001BB318 /* StoreViewController.swift */,
+				2D47E2F61D9CDBAA0041F6AA /* ProductModel.swift */,
 				2D47E2EA1D9CCB8B0041F6AA /* ShopViewController.swift */,
 				2D47E2EE1D9CCF6B0041F6AA /* ProductView.xib */,
 				2D47E2F21D9CD79A0041F6AA /* ProductCollectionViewCell.swift */,
@@ -216,18 +221,22 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Portia Sharma";
 				TargetAttributes = {
 					2D317BB41D9AD0BE001BB318 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = B2278J6LL2;
+						LastSwiftMigration = 0800;
 					};
 					2D317BCB1D9AD0BE001BB318 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = 2D317BB41D9AD0BE001BB318;
 					};
 					2D317BD61D9AD0BF001BB318 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = 2D317BB41D9AD0BE001BB318;
 					};
 				};
@@ -287,6 +296,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D5D98091DA4364B000350AE /* StoreViewModel.swift in Sources */,
 				2D317BEC1D9B3559001BB318 /* StoreViewController.swift in Sources */,
 				2D317BC11D9AD0BE001BB318 /* VogueStore.xcdatamodeld in Sources */,
 				2D47E2F31D9CD79A0041F6AA /* ProductCollectionViewCell.swift in Sources */,
@@ -305,6 +315,7 @@
 				2D47E2F81D9CDBAA0041F6AA /* ProductModel.swift in Sources */,
 				2D317BED1D9B3559001BB318 /* StoreViewController.swift in Sources */,
 				2D47E2F41D9CD79A0041F6AA /* ProductCollectionViewCell.swift in Sources */,
+				2D5D984A1DA6DF94000350AE /* StoreViewModel.swift in Sources */,
 				2D317BD11D9AD0BE001BB318 /* VogueStoreTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -317,6 +328,7 @@
 				2D47E2F91D9CDBAA0041F6AA /* ProductModel.swift in Sources */,
 				2D317BEE1D9B3559001BB318 /* StoreViewController.swift in Sources */,
 				2D47E2F51D9CD79A0041F6AA /* ProductCollectionViewCell.swift in Sources */,
+				2D5D984B1DA6DF94000350AE /* StoreViewModel.swift in Sources */,
 				2D317BDC1D9AD0BF001BB318 /* VogueStoreUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -370,8 +382,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -415,8 +429,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -435,6 +451,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -443,11 +460,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = B2278J6LL2;
 				INFOPLIST_FILE = VogueStore/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ipaycheck.VogueStore;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -456,11 +475,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = B2278J6LL2;
 				INFOPLIST_FILE = VogueStore/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ipaycheck.VogueStore;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -473,6 +494,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ipaycheck.VogueStoreTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VogueStore.app/VogueStore";
 			};
 			name = Debug;
@@ -485,6 +507,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ipaycheck.VogueStoreTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VogueStore.app/VogueStore";
 			};
 			name = Release;
@@ -496,6 +519,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ipaycheck.VogueStoreUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = VogueStore;
 			};
 			name = Debug;
@@ -507,6 +531,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ipaycheck.VogueStoreUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = VogueStore;
 			};
 			name = Release;
